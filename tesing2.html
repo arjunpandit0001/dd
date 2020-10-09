@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    
+    <title>Document</title>
+</head>
+<body>
+    <div ng-app='myApp'>
+        <div ng-controller="Main">            
+            <p>Original</p>
+            <select multiple="multiple" ng-model="myModel">
+              <option ng-repeat="d in data" value="{{d}}">{{d.mail}}</option>
+            </select>
+    
+            <txt-area data="myModel" property="mail" placeholder="expected value" ng-model='model' ng-trim='false'></txt-area>
+    
+            <div>{{model}}</div>
+        </div>
+    </div>
+
+    <script>
+        var myApp = angular.module('myApp', []);
+
+    myApp.controller('Main', function($scope){
+    $scope.data = [{mail:"a@foo"},{mail:"b@foo"},{mail:"c@foo"}];
+    $scope.model = "";
+    });
+
+    myApp.directive('txtArea', function() {
+    return {
+        restrict: 'AE',
+        replace: 'true',
+        scope: {data: '=', model: '=ngModel'},
+        template: "<textarea></textarea>",
+        link: function(scope, elem, attrs) {
+            scope.$watch('data', function(newVal, oldVal) {
+                if (newVal) {
+                    scope.model += JSON.parse(newVal[0])[attrs.property];
+                }
+            });
+        }
+    };
+});
+    </script>
+</body>
+</html>

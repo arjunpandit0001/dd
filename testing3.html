@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="plunker">
+
+<head>
+  <meta charset="utf-8" />
+  <title>AngularJS Plunker</title>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+
+  <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
+  <script data-require="angular.js@1.4.x" src="https://code.angularjs.org/1.4.9/angular.js" data-semver="1.4.9"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.7.0/lodash.min.js"></script>
+  <script src="angularjs-dropdown-multiselect.min.js"></script>
+
+  <script src="controller.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+<div ng-controller="MainCtrl">
+  <p>Hello {{name}}!</p>
+  
+  
+  <div ng-dropdown-multiselect="" options="example14data" selected-model="example14model" checkboxes="true" extra-settings="setting1"></div>
+
+  <!-- <div ng-dropdown-multiselect="" options="example14data" selected-model="example14model" extra-settings="setting2"></div> -->
+
+  <div>{{example14model}}</div>
+  <pre>{{testtofetchid}}</pre>
+  <pre>{{cc_length}}</pre>
+  <button onclick="submit()">submit</button>
+
+
+  <select name="skills" multiple="" class="ui fluid dropdown">
+    <option value="">Skills</option>
+  <option value="angular">Angular</option>
+  <option value="css">CSS</option>
+  <option value="design">Graphic Design</option>
+  <option value="ember">Ember</option>
+  <option value="html">HTML</option>
+  <option value="ia">Information Architecture</option>
+  <option value="javascript">Javascript</option>
+  <option value="mech">Mechanical Engineering</option>
+  <option value="meteor">Meteor</option>
+  <option value="node">NodeJS</option>
+  <option value="plumbing">Plumbing</option>
+  <option value="python">Python</option>
+  <option value="rails">Rails</option>
+  <option value="react">React</option>
+  <option value="repair">Kitchen Repair</option>
+  <option value="ruby">Ruby</option>
+  <option value="ui">UI Design</option>
+  <option value="ux">User Experience</option>
+  </select>
+
+
+</div>
+
+
+    <div class="row">
+      <div class="col-lg-1 col-sm-1"></div>
+      <div class="col-lg-10 col-sm-10 ">
+        <div id="chart_div2" style="height: 600px;" ></div>
+      </div>
+      <div class="col-lg-1   col-sm-1"></div>
+    </div>
+
+
+
+
+<script type="text/javascript">
+ 
+  </script>
+</body>
+
+</html>
